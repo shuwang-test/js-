@@ -7,6 +7,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 	<script src="js/jquery.min.js"></script>
+	<style>
+		.num{
+			position: absolute;
+			left: 0;
+			top: 0;
+			text-align: center;
+			color: aqua;
+			font-size: 20px;
+			padding: 250px 0;
+			width: 100%;
+		}
+	</style>
 </head>
 
 <body>
@@ -58,9 +70,13 @@
 				</div>
 			</div>
 		</div>
+		<div class="num">
+			0
+		</div>
 	</div>
 	<script src="js/jquery-ui.min.js"></script>
 	<script>
+		var num = 0;
 		$('.add-to-cart').on('click', function () {
 			var cart = $('.shopping-cart');
 			var imgtodrag = $(this).parent('.item').find("img").eq(0);
@@ -89,6 +105,7 @@
 					'width': 0,
 					'height': 0
 				}, function () {
+					$('.num').text(++num)
 					$(this).detach()
 				});
 			}
